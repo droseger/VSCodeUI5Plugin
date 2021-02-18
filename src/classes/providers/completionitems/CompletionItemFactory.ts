@@ -3,11 +3,9 @@ import * as vscode from "vscode";
 import { UI5MetadataPreloader } from "../../librarydata/UI5MetadataDAO";
 import { SAPIcons } from "../../UI5Classes/SAPIcons";
 import { ResourceModelData } from "../../UI5Classes/ResourceModelData";
-import { StandardXMLCompletionItemFactory as StandardXMLCompletionItemFactory } from "./xml/StandardXMLCompletionItemFactory";
 import { SAPUIDefineFactory } from "./js/sapuidefine/SAPUIDefineFactory";
 import { ViewIdCompletionItemFactory } from "./js/ViewIdCompletionItemFactory";
 import { JSDynamicCompletionItemsFactory } from "./js/JSDynamicCompletionItemsFactory";
-import { XMLDynamicCompletionItemFactory } from "./xml/XMLDynamicCompletionItemFactory";
 import { AcornSyntaxAnalyzer } from "../../UI5Classes/JSParser/AcornSyntaxAnalyzer";
 import { UIClassFactory } from "../../UI5Classes/UIClassFactory";
 import { CustomUIClass } from "../../UI5Classes/UI5Parser/UIClass/CustomUIClass";
@@ -16,7 +14,6 @@ import { GeneratorFactory } from "./codegenerators/GeneratorFactory";
 
 export class CompletionItemFactory {
 	private static readonly _nodeDAO = new SAPNodeDAO();
-	public static XMLStandardLibCompletionItems: CustomCompletionItem[] = [];
 	public static JSDefineCompletionItems: CustomCompletionItem[] = [];
 	private readonly _language: GeneratorFactory.language;
 
@@ -29,33 +26,7 @@ export class CompletionItemFactory {
 
 		if (this._language === GeneratorFactory.language.js) {
 			completionItems = await this._createJSCompletionItems(document);
-		} else if (this._language === GeneratorFactory.language.xml) {
-			if (CompletionItemFactory.XMLStandardLibCompletionItems.length === 0) {
-				completionItems = await this._createXMLCompletionItems();
-			} else {
-				completionItems = CompletionItemFactory.XMLStandardLibCompletionItems;
-			}
 		}
-
-		return completionItems;
-	}
-
-	private async _createXMLCompletionItems() {
-		let completionItems: CustomCompletionItem[] = [];
-		const SAPNodes = await CompletionItemFactory._nodeDAO.getAllNodes();
-
-		const metadataPreloader: UI5MetadataPreloader = new UI5MetadataPreloader(SAPNodes);
-		await Promise.all([
-			metadataPreloader.preloadLibs(),
-			SAPIcons.preloadIcons(),
-			ResourceModelData.readTexts()
-		]);
-		console.log("Libs are preloaded");
-
-		const xmlClassFactoy = new StandardXMLCompletionItemFactory();
-		completionItems = await xmlClassFactoy.generateAggregationPropertyCompletionItems();
-		CompletionItemFactory.XMLStandardLibCompletionItems = completionItems;
-		console.log("After the preload XML Completion Items are generated successfully");
 
 		return completionItems;
 	}
@@ -119,11 +90,5 @@ export class CompletionItemFactory {
 
 		const completionItems = jsDynamicFactory.createUIClassCompletionItems(document, position);
 		return completionItems;
-	}
-
-	public createXMLDynamicCompletionItems() {
-		const xmlDynamicFactory = new XMLDynamicCompletionItemFactory();
-
-		return xmlDynamicFactory.createXMLDynamicCompletionItems();
 	}
 }

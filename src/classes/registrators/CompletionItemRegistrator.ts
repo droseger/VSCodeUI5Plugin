@@ -9,9 +9,6 @@ import { GeneratorFactory } from "../providers/completionitems/codegenerators/Ge
 export class CompletionItemRegistrator {
 	static async register() {
 		/* Completion Items */
-		const XMLCompletionItemFactory = new CompletionItemFactory(GeneratorFactory.language.xml);
-		await XMLCompletionItemFactory.createUIDefineCompletionItems();
-		console.log("XML Completion Items generated");
 
 		const JSCompletionItemFactory = new CompletionItemFactory(GeneratorFactory.language.js);
 		await JSCompletionItemFactory.createUIDefineCompletionItems();
@@ -46,13 +43,6 @@ export class CompletionItemRegistrator {
 			aChars.push(String.fromCharCode(i));
 		}
 
-		const XMLProvider = vscode.languages.registerCompletionItemProvider({ language: "xml", scheme: "file" }, {
-			provideCompletionItems() {
-				return XMLCompletionItemFactory.createXMLDynamicCompletionItems();
-			}
-		}, "<", ":", "\"", "*", ...aChars);
-
-		UI5Plugin.getInstance().addDisposable(XMLProvider);
 		UI5Plugin.getInstance().addDisposable(JSMethodPropertyProvider);
 		UI5Plugin.getInstance().addDisposable(JSViewIDProvider);
 
