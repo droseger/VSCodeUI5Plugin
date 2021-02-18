@@ -62,6 +62,10 @@
 			"properties": {
 				"ui5.plugin.ui5version": {
 					"type": "string",
+					"enum": [
+						"1.60.24",
+						"1.71.34"
+					],
 					"default": "1.60.24",
 					"description": "SAPUI5 Library version for lib metadata preload"
 				},
