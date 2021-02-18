@@ -1,7 +1,5 @@
 # SAPUI5 Extension
-![asd](https://github.com/iljapostnovs/VSCodeUI5Plugin/workflows/Test%20vscode%20plugin%20and%20build%20artifact/badge.svg?branch=development)
-
-This plugin contains perks for UI5 developers.
+A fork of [iljapostnovs/VSCodeUI5Plugin](https://github.com/iljapostnovs/VSCodeUI5Plugin) with changes to the XML formatter and removal of features which are also present in [sap/ui5-language-assistant](https://github.com/sap/ui5-language-assistant).
 
 Before you start working with the plugin, it will be useful to set formatOnSave setting in VSCode preferences:
 ```json
@@ -11,13 +9,6 @@ The reason for it is described in [Known limitations](#known-limitations)
 
 ----------
 ## Completion Items
-### XML
-XML Completion Items for UI5 Controls.<br/>
-> Check *ui5.plugin.addInheritedPropertiesAndAggregations* preference if you want to generate less properties and aggregations<br/>
-
-![XMLCompletionItems](/images/XMLCompletionItems.gif)<br/>
-XML Completion Items for properties, aggregations, associations and events<br/>
-![DynamicXMLCompletionItems](/images/DynamicXMLCompletionItems.gif)<br/>
 
 ### JS
 
@@ -100,17 +91,10 @@ There are five linters available:<br/>
 ----------
 ## Code Action Provider
 Code Actions for UI5 modules import and inserting non-existent methods in .js files are provided.<br/>
-Code Actions for creating event handlers in controllers from xml views are provided.<br/>
 > Hotkey: Alt + Enter<br/>
 
 ![CodeActionsProvider](/images/CodeActionsProvider.gif)
 ![CreateMethodCodeActionsProvider](/images/CreateMethodCodeActionsProvider.gif)
-
-----------
-## JS and XML Hover Provider
-Information on hover is provided.<br/>
-
-![HoverProvider](/images/HoverProvider.gif)
 
 ----------
 ## XML Formatter

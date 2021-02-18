@@ -7,15 +7,12 @@ import { UIDefineCompletionItemGenerator } from "./define/UIDefineCompletionItem
 export class GeneratorFactory {
 	private static readonly _generatorMap = {
 		aggregation: {
-			"xml": XMLAggregationGenerator,
 			"js": XMLAggregationGenerator //TODO: add js aggregation generator
 		},
 		property: {
-			"xml": XMLPropertyGenerator,
 			"js": XMLPropertyGenerator //TODO: add js property generator
 		},
 		define: {
-			"xml": undefined,
 			"js": UIDefineCompletionItemGenerator
 		}
 	};
@@ -39,7 +36,6 @@ export class GeneratorFactory {
 
 export namespace GeneratorFactory {
 	export enum language {
-		xml = "xml",
 		js = "js"
 	}
 	export enum type {
