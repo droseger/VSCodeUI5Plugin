@@ -34,15 +34,16 @@ export class XMLFormatter {
 
 					indentationLevel = this._modifyIndentationLevel(currentTag, indentationLevel, true);
 					let indentation = this._getIndentation(indentationLevel);
-
+					
 					let newTag = `${indentation}${tagBegin}${tagName}\n`;
 
 					if (tagAttributes.length === 1) {
 						newTag = newTag.trimRight();
 					}
-					newTag += tagAttributes.reduce((accumulator, tagAttribute) => {
+					newTag += tagAttributes.reduce((accumulator, tagAttribute, currentIndex) => {
 						const tagData = XMLParser.getAttributeNameAndValue(tagAttribute);
-						accumulator += `${indentation}\t${tagData.attributeName}="${tagData.attributeValue}"\n`;
+						let conditionalNewLine = (currentIndex === tagAttributes.length - 1) ? "" : "\n";
+						accumulator += `${indentation}\t${tagData.attributeName}="${tagData.attributeValue}"${conditionalNewLine}`;
 						if (tagAttributes.length === 1) {
 							accumulator = ` ${accumulator.trimLeft()}`;
 						}
@@ -54,7 +55,7 @@ export class XMLFormatter {
 						indentation = "";
 					}
 
-					newTag += `${indentation}${tagEnd}`;
+					newTag += tagEnd;
 
 					indentationLevel = this._modifyIndentationLevel(currentTag, indentationLevel, false);
 

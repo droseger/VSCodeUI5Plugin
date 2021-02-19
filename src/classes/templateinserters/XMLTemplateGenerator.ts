@@ -9,15 +9,13 @@ const viewTemplate =
 	xmlns:c="sap.ui.core"
 	displayBlock="true"
 	height="100%"
-	busyIndicatorDelay="0"
->
+	busyIndicatorDelay="0">
 </mvc:View>`;
 
 const fragmentTemplate =
 `<c:FragmentDefinition
 	xmlns="sap.m"
-	xmlns:c="sap.ui.core"
->
+	xmlns:c="sap.ui.core">
 </c:FragmentDefinition>`;
 
 export class XMLTemplateGenerator extends TemplateGenerator {
