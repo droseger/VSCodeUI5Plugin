@@ -37,24 +37,20 @@
 		],
 		"keybindings": [
 			{
-				"command": "editor.action.quickFix",
-				"key": "alt+enter"
-			},
-			{
 				"command": "ui5plugin.insertCustomClassName",
-				"key": "f6"
+				"key": "Win+f6"
 			},
 			{
 				"command": "ui5plugin.moveDefineToFunctionParameters",
-				"key": "f5"
+				"key": "Win+f5"
 			},
 			{
 				"command": "ui5plugin.switchBetweenVC",
-				"key": "f3"
+				"key": "Win+f3"
 			},
 			{
 				"command": "ui5plugin.exportToi18n",
-				"key": "f4"
+				"key": "Win+f4"
 			}
 		],
 		"configuration": {

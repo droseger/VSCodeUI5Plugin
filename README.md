@@ -91,7 +91,7 @@ There are five linters available:<br/>
 ----------
 ## Code Action Provider
 Code Actions for UI5 modules import and inserting non-existent methods in .js files are provided.<br/>
-> Hotkey: Alt + Enter<br/>
+> Hotkey: Ctrl + .<br/>
 
 ![CodeActionsProvider](/images/CodeActionsProvider.gif)
 ![CreateMethodCodeActionsProvider](/images/CreateMethodCodeActionsProvider.gif)
@@ -106,7 +106,7 @@ XML Formatter is available.<br/>
 ## Commands
 
 ### Move sap.ui.define to parameters
-> Hotkey: F5<br/>
+> Hotkey: Win + F5<br/>
 
 > Related preference entries: *ui5.plugin.moveDefineToFunctionParametersOnAutocomplete*<br/>
 
@@ -121,19 +121,19 @@ Set your position to the string you want to export to i18n.properties file and e
 > *ui5.plugin.addI18nTextLengthLimitation*<br/>
 > *ui5.plugin.textTransformationStrategy*<br/>
 
-> Hotkey: F4<br/>
+> Hotkey: Win + F4<br/>
 
 ![ExportToI18n](/images/ExportToI18n.gif)
 
 ### Switch View/Controller
 Goes to view from controller and to controller from view<br/>
-> Hotkey: F3<br/>
+> Hotkey: Win + F3<br/>
 
 ![SwitchViewController](/images/SwitchViewController.gif)
 
 ### Insert Custom Class name
 Inserts the class name into current position<br/>
-> Hotkey: F6<br/>
+> Hotkey: Win + F6<br/>
 
 ![InsertCustomClassNameCommand](/images/InsertCustomClassNameCommand.gif)
 
@@ -159,13 +159,13 @@ The generated diagram can be imported to draw.io<br/>
 
 ----------
 ## Hotkeys
-| Hotkey        | Command                                  |
-|:-------------:| -------------                            |
-| Alt + Enter   | Quick Fix Action                         |
-| F3            | Switch View/Controller                   |
-| F4            | Export string to i18n                    |
-| F5            | Move sap.ui.define imports to parameters |
-| F6            | Insert custom class name                 |
+| Hotkey     | Command                                  |
+|:----------:| -------------                            |
+| Ctrl + .   | Quick Fix Action                         |
+| Win + F3   | Switch View/Controller                   |
+| Win + F4   | Export string to i18n                    |
+| Win + F5   | Move sap.ui.define imports to parameters |
+| Win + F6   | Insert custom class name                 |
 
 ----------
 ## Settings
